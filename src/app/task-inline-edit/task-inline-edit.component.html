@@ -1,9 +1,18 @@
-
-  <div *ngIf="editing">
-    <input #inlineEditControl [required]="required" (blur)="onBlur($event)" [name]="value" [(ngModel)]="task.description" [type]="type" [placeholder]="task.description" 
-	(click)="$event.stopPropagation();" class="form-control form-control-lg"/>
-  </div>
-  <div *ngIf="!editing">
-    <label class="block bold" (click)="edit(value);$event.stopPropagation();"> {{task.description}}</label>
-	
-  </div>
+<div *ngIf="editing">
+  <input
+    #inlineEditControl
+    [required]="required"
+    (blur)="onBlur()"
+    [name]="value"
+    [(ngModel)]="task.description"
+    [type]="type"
+    [placeholder]="task.description"
+    (click)="$event.stopPropagation();"
+    class="form-control form-control-lg"
+  />
+</div>
+<div *ngIf="!editing">
+  <label class="block bold" (click)="edit(value);$event.stopPropagation();">
+    {{task.description}}
+  </label>
+</div>

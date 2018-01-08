@@ -1,27 +1,25 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand">
-              
-            </a>
+            <a class="navbar-brand"></a>
             <span class="navbar-brand">Angular + Bootstrap To Do List</span>
         </div>
-        
     </div>
 </nav>
 <div class="container">
-
     <div class="row">
         <div class="col-md-12">
             <h2>Angular TODO List Module <br/>
                 <small>Manage your daily tasks</small>
             </h2>
             <p>Create, delete and mark as done your tasks.</p>
-           <app-task-insert [tasks]="tasks"></app-task-insert>
-
-
-			<ul id="myUL">
-			<app-task *ngFor="let currenttask of sortedTasks()" [task]="currenttask"></app-task>
-			</ul>
+            <app-task-insert [tasks]="tasks"></app-task-insert>
         </div>
+        <ul id="myUL">
+            <app-task
+              *ngFor="let currentTask of sortedTasks()"
+              [task]="currentTask"
+            ></app-task>
+        </ul>
+    </div>
 </div>
