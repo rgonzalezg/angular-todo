@@ -1,18 +1,28 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-
+import { TaskComponent } from './task/task.component';
+import { TaskInsertComponent } from './task-insert/task-insert.component';
+import { TaskDeleteComponent } from './task-delete/task-delete.component';
+import { AppBootstrapModule } from './app-bootstrap/app-bootstrap.module';
+import { TaskInlineEditComponent } from './task-inline-edit/task-inline-edit.component';
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskComponent,
+    TaskInsertComponent,
+    TaskDeleteComponent,
+    TaskInlineEditComponent
   ],
   imports: [
     BrowserModule,
+	AppBootstrapModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+	ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

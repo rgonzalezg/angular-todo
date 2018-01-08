@@ -1,0 +1,6 @@
+<li (click)="markDone()" [ngClass]="{'checked':task.done}">
+  
+   <app-task-inline-edit [(ngModel)]="task.description" [task]="task" [required]="true" [disabled]="task.done" type="text">
+  </app-task-inline-edit>
+  <app-task-delete [task]="task"></app-task-delete>
+</li>
