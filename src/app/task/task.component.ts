@@ -3,20 +3,16 @@ import { Task } from './task.model';
 @Component({
   selector: 'app-task',
   templateUrl: './task.component.html',
-  styleUrls: ['./task.component.css']
 })
 export class TaskComponent implements OnInit {
+  @Input() task: Task;
 
-@Input() task: Task
-  constructor() { 
+  markDone(): Boolean {
+    this.task.done = !this.task.done;
+    console.log('test');
+    return false;
   }
- 
-  markDone(): Boolean
-  {
-	  this.task.done = true;
-	  console.log('test');
-	  return false;
-  }
+
   ngOnInit() {
   }
 

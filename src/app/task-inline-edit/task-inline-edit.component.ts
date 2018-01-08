@@ -1,12 +1,14 @@
-import { Component,
+import {
+  Component,
   Input,
   ElementRef,
   ViewChild,
   Renderer,
   forwardRef,
-  OnInit } from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR} from '@angular/forms';
-import {Task} from '../task/task.model';
+  OnInit
+} from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { Task } from '../task/task.model';
 
 const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
   provide: NG_VALUE_ACCESSOR,
@@ -17,8 +19,7 @@ const INLINE_EDIT_CONTROL_VALUE_ACCESSOR = {
 @Component({
   selector: 'app-task-inline-edit',
   templateUrl: './task-inline-edit.component.html',
-  providers: [INLINE_EDIT_CONTROL_VALUE_ACCESSOR],
-  styleUrls: ['./task-inline-edit.component.css']
+  providers: [INLINE_EDIT_CONTROL_VALUE_ACCESSOR]
 })
 
 export class TaskInlineEditComponent implements ControlValueAccessor, OnInit {
@@ -64,13 +65,13 @@ export class TaskInlineEditComponent implements ControlValueAccessor, OnInit {
   }
 
   // Do stuff when the input element loses focus
-  onBlur($event: Event) {
+  onBlur() {
     this.editing = false;
   }
 
   // Start the editting process for the input element
   edit(value) {
-	  console.log('here');
+    console.log('here');
     if (this.disabled) {
       return;
     }
@@ -78,8 +79,9 @@ export class TaskInlineEditComponent implements ControlValueAccessor, OnInit {
     this.preValue = value;
     this.editing = true;
     // Focus on the input element just as the editing begins
-    setTimeout(_ => this._renderer.invokeElementMethod(this.inlineEditControl,
-      'focus', []));
+    setTimeout(() => (
+      this._renderer.invokeElementMethod(this.inlineEditControl.nativeElement, 'focus')
+    ));
   }
 
   ngOnInit() {
